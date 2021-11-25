@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominicsPizza.Entities", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominicsPizza.Repositories", "DominicsPizza.Repositories\DominicsPizza.Repositories.csproj", "{7D72DF03-438C-456C-BB38-D9E2A8F3D19C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DominicsPizza.Services", "DominicsPizza.Services\DominicsPizza.Services.csproj", "{0B09EBBE-222C-4962-9DD0-0F0CC59C2846}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7D72DF03-438C-456C-BB38-D9E2A8F3D19C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D72DF03-438C-456C-BB38-D9E2A8F3D19C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D72DF03-438C-456C-BB38-D9E2A8F3D19C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B09EBBE-222C-4962-9DD0-0F0CC59C2846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B09EBBE-222C-4962-9DD0-0F0CC59C2846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B09EBBE-222C-4962-9DD0-0F0CC59C2846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B09EBBE-222C-4962-9DD0-0F0CC59C2846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
