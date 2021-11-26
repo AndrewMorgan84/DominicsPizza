@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DominicsPizza.Entities
 {
@@ -12,6 +13,7 @@ namespace DominicsPizza.Entities
             IsActive = true;
         }
 
+        [Key]
         public Guid guid { get; set; }
 
         public int UserId { get; set; }
