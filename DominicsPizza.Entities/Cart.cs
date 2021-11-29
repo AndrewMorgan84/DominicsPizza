@@ -14,7 +14,7 @@ namespace DominicsPizza.Entities
         }
 
         [Key]
-        public Guid guid { get; set; }
+        public Guid Id { get; set; }
 
         public int UserId { get; set; }
 
