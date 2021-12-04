@@ -28,7 +28,7 @@ namespace DominicsPizza.Repositories
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"data source=DEV4\Dev4; initial Catalog=DominicsPizza;integrated security=True;");
+                optionsBuilder.UseSqlServer(@"data source=DESKTOP-TRA0LPE; initial Catalog=DominicsPizza;integrated security=True;");
             }
 
             base.OnConfiguring(optionsBuilder);
