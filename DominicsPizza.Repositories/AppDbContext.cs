@@ -6,6 +6,17 @@ namespace DominicsPizza.Repositories
 {
     public class AppDbContext : IdentityDbContext<User, Role, int>
     {
+        //Needed for migrations only
+        public AppDbContext()
+        {
+
+        }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options): base(options)
+        {
+
+        }
+
         public DbSet<Address> Addresses { get; set; }
 
         public DbSet<Cart> Carts { get; set; }
@@ -26,6 +37,7 @@ namespace DominicsPizza.Repositories
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //Needed for migration only
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(@"data source=DESKTOP-TRA0LPE; initial Catalog=DominicsPizza;integrated security=True;");
