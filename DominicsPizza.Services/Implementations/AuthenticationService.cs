@@ -11,10 +11,10 @@ namespace DominicsPizza.Services.Implementations
     {
         protected SignInManager<User> _signInManager;
         protected UserManager<User> _userManager;
-        protected RoleManager<User> _roleManager;
+        protected RoleManager<Role> _roleManager;
 
         public AuthenticationService(SignInManager<User> signInManager, UserManager<User> userManager, 
-            RoleManager<User> roleManager)
+            RoleManager<Role> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -26,7 +26,7 @@ namespace DominicsPizza.Services.Implementations
             var result = _signInManager.PasswordSignInAsync(Username, Password, false, lockoutOnFailure: false).Result;
             if (result.Succeeded)
             {
-                var user = _userManager.FindByIdAsync(Username).Result;
+                var user = _userManager.FindByNameAsync(Username).Result;
                 var roles = _userManager.GetRolesAsync(user).Result;
                 user.Roles = roles.ToArray();
 

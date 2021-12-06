@@ -2,6 +2,7 @@
 using DominicsPizza.Services.Interfaces;
 using DominicsPizza.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace DominicsPizza.WebUI.Controllers
 {
@@ -13,8 +14,29 @@ namespace DominicsPizza.WebUI.Controllers
             _authService = authService;
         }
 
-        public IActionResult Login() 
+        public IActionResult Login()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginModel model) 
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _authService.AuthenticateUser(model.Email, model.Password);
+                if(user != null)
+                {
+                    if (user.Roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+                    }
+                    else if (user.Roles.Contains("User"))
+                    {
+                        return RedirectToAction("Index", "Dashboard", new { area = "User" });
+                    }
+                }
+            }
             return View();
         }
 
@@ -23,6 +45,7 @@ namespace DominicsPizza.WebUI.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult SignUp(UserModel model)
         {
             if (ModelState.IsValid)
