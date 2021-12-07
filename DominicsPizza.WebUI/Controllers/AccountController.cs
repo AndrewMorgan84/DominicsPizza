@@ -3,6 +3,7 @@ using DominicsPizza.Services.Interfaces;
 using DominicsPizza.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DominicsPizza.WebUI.Controllers
 {
@@ -64,6 +65,17 @@ namespace DominicsPizza.WebUI.Controllers
                     RedirectToAction("Login");
                 }
             }
+            return View();
+        }
+
+        public async Task<IActionResult> LogOut() 
+        {
+            await _authService.SignOut();
+            return RedirectToAction("LogOutComplete");
+        }
+
+        public IActionResult LogOutComplete()
+        {
             return View();
         }
     }
