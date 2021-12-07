@@ -2,8 +2,7 @@
 
 namespace DominicsPizza.WebUI.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class DashboardController : Controller
+    public class DashboardController : BaseController
     {
         public IActionResult Index()
         {
