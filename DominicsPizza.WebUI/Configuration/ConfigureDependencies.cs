@@ -1,5 +1,7 @@
 ﻿using DominicsPizza.Services.Implementations;
 using DominicsPizza.Services.Interfaces;
+using DominicsPizza.WebUI.Helpers;
+using DominicsPizza.WebUI.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DominicsPizza.WebUI.Configuration
@@ -9,6 +11,7 @@ namespace DominicsPizza.WebUI.Configuration
         public static void AddServices(IServiceCollection services)
         {
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<IUserAccessor, UserAccessor>();
         }
     }
 }
