@@ -20,5 +20,10 @@ namespace DominicsPizza.WebUI.Areas.Admin.Controllers
             var data = _catalogService.GetItems();
             return View(data);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
