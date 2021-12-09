@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DominicsPizza.WebUI.Areas.Admin.Controllers
 {
-    public class ItemController : Controller
+    public class ItemController : BaseController
     {
-        private readonly ICatalogService _catalogService;
+        ICatalogService _catalogService;
 
         public ItemController(ICatalogService catalogService)
         {
@@ -17,7 +17,8 @@ namespace DominicsPizza.WebUI.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var data = _catalogService.GetItems();
+            return View(data);
         }
     }
 }
