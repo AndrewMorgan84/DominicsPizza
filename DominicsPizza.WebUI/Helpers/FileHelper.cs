@@ -17,7 +17,10 @@ namespace DominicsPizza.WebUI.Helpers
 
         public void DeleteFile(string imageUrl)
         {
-            throw new NotImplementedException();
+            if(File.Exists(_environment.WebRootPath + imageUrl))
+            {
+                File.Delete(_environment.WebRootPath + imageUrl);
+            }
         }
 
         public string UploadFile(IFormFile file)
