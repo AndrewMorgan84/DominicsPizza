@@ -1,5 +1,7 @@
 ﻿using DominicsPizza.Entities;
 using DominicsPizza.Repositories;
+using DominicsPizza.Repositories.Implementation;
+using DominicsPizza.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +21,10 @@ namespace DominicsPizza.Services.Configuration
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
             services.AddScoped<DbContext, AppDbContext>();
+
+            services.AddTransient<IRepository<Item>, Repository<Item>>();
+            services.AddTransient<IRepository<Category>, Repository<Category>>();
+            services.AddTransient<IRepository<ItemType>, Repository<ItemType>>();
         }
     }
 }
