@@ -110,5 +110,14 @@ namespace DominicsPizza.WebUI.Areas.Admin.Controllers
             ViewBag.ItemTypes = _catalogService.GetItemTypes();
             return View("Create", model);
         }
+
+        [Route("~/Admin/Item/Delete/{id}/{url}")]
+        public IActionResult Delete(int id, string url)
+        {
+            url = url.Replace("%2F","/");
+            _catalogService.DeleteItem(id);
+            _fileHelper.DeleteFile(url);
+            return RedirectToAction("Index");
+        }
     }
 }
