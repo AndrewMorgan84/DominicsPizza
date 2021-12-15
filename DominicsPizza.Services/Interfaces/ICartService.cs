@@ -4,7 +4,7 @@ using System;
 
 namespace DominicsPizza.Services.Interfaces
 {
-    interface ICartService
+    public interface ICartService
     {
         int GetCartCount(Guid cartId);
 
