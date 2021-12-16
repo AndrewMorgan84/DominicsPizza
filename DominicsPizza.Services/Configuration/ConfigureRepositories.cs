@@ -22,6 +22,7 @@ namespace DominicsPizza.Services.Configuration
                 .AddDefaultTokenProviders();
             services.AddScoped<DbContext, AppDbContext>();
 
+            services.AddTransient<ICartRepository, CartRepository>();
             services.AddTransient<IRepository<Item>, Repository<Item>>();
             services.AddTransient<IRepository<Category>, Repository<Category>>();
             services.AddTransient<IRepository<ItemType>, Repository<ItemType>>();
