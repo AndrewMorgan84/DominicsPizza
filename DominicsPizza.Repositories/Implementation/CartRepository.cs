@@ -3,34 +3,33 @@ using DominicsPizza.Repositories.Interfaces;
 using DominicsPizza.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DominicsPizza.Repositories.Implementation
 {
     public class CartRepository : Repository<Cart>, ICartRepository
     {
-        private AppDbContext appContext => _dbContext as AppDbContext;
-
+        private AppDbContext appContext
+        {
+            get
+            {
+                return _dbContext as AppDbContext;
+            }
+        }
         public CartRepository(DbContext dbContext) : base(dbContext)
         {
-                
-        }
 
+        }
         public Cart GetCart(Guid CartId)
         {
-            return appContext.Carts
-                .Include("Items")
-                .Where(c => c.Id == CartId && c.IsActive)
-                .FirstOrDefault();
+            return appContext.Carts.Include("Items").Where(c => c.Id == CartId && c.IsActive == true).FirstOrDefault();
         }
 
         public int DeleteItem(Guid cartId, int itemId)
         {
-            var item = appContext.CartItems
-                .Where(ci => ci.CartId == cartId && ci.Id == itemId)
-                .FirstOrDefault();
-
-            if(item != null)
+            var item = appContext.CartItems.Where(ci => ci.CartId == cartId && ci.Id == itemId).FirstOrDefault();
+            if (item != null)
             {
                 appContext.CartItems.Remove(item);
                 return appContext.SaveChanges();
@@ -45,14 +44,14 @@ namespace DominicsPizza.Repositories.Implementation
         {
             bool flag = false;
             var cart = GetCart(cartId);
-            if(cart != null)
+            if (cart != null)
             {
-                for(int i = 0; i < cart.Items.Count; i++)
+                for (int i = 0; i < cart.Items.Count; i++)
                 {
-                    if(cart.Items[i].Id == itemId)
+                    if (cart.Items[i].Id == itemId)
                     {
                         flag = true;
-
+                        //for minus quantity
                         if (Quantity < 0 && cart.Items[i].Quantity > 1)
                             cart.Items[i].Quantity += (Quantity);
                         else if (Quantity > 0)
@@ -60,7 +59,6 @@ namespace DominicsPizza.Repositories.Implementation
                         break;
                     }
                 }
-
                 if (flag)
                     return appContext.SaveChanges();
             }
@@ -74,10 +72,10 @@ namespace DominicsPizza.Repositories.Implementation
             return appContext.SaveChanges();
         }
 
-        public CartModel GetCartDetails(Guid cartId)
+        public CartModel GetCartDetails(Guid CartId)
         {
             var model = (from cart in appContext.Carts
-                         where cart.Id == cartId && cart.IsActive == true
+                         where cart.Id == CartId && cart.IsActive == true
                          select new CartModel
                          {
                              Id = cart.Id,
@@ -86,7 +84,7 @@ namespace DominicsPizza.Repositories.Implementation
                              Items = (from cartItem in appContext.CartItems
                                       join item in appContext.Items
                                       on cartItem.ItemId equals item.Id
-                                      where cartItem.CartId == cartId
+                                      where cartItem.CartId == CartId
                                       select new ItemModel
                                       {
                                           Id = cartItem.Id,

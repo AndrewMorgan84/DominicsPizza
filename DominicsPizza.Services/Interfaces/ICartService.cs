@@ -7,15 +7,10 @@ namespace DominicsPizza.Services.Interfaces
     public interface ICartService
     {
         int GetCartCount(Guid cartId);
-
         CartModel GetCartDetails(Guid cartId);
-
-        Cart AddItem(int userId, Guid cartId, int itemId, decimal unitPrice, int quantity);
-
-        int DeleteItem(Guid cartId, int itemId);
-
+        Cart AddItem(int UserId, Guid CartId, int ItemId, decimal UnitPrice, int Quantity);
+        int DeleteItem(Guid cartId, int ItemId);
         int UpdateQuantity(Guid cartId, int id, int quantity);
-
-        int UpdateCart(Guid cartId, int userId);
+        int UpdateCart(Guid CartId, int UserId);
     }
 }
