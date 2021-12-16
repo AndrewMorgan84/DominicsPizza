@@ -12,15 +12,10 @@ namespace DominicsPizza.Entities
             CreatedDate = DateTime.Now;
             IsActive = true;
         }
-
-        [Key]
         public Guid Id { get; set; }
-
         public int UserId { get; set; }
-
         public DateTime CreatedDate { get; set; }
-
-        public virtual List<CartItem> Items { get; set; }
+        public virtual List<CartItem> Items { get; private set; }
 
         public bool IsActive { get; set; }
     }

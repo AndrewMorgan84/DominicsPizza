@@ -10,13 +10,7 @@ namespace DominicsPizza.Repositories.Implementation
 {
     public class CartRepository : Repository<Cart>, ICartRepository
     {
-        private AppDbContext appContext
-        {
-            get
-            {
-                return _dbContext as AppDbContext;
-            }
-        }
+        private AppDbContext appContext => _dbContext as AppDbContext;
         public CartRepository(DbContext dbContext) : base(dbContext)
         {
 
