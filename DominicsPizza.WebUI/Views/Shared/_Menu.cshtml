@@ -17,9 +17,7 @@
                     <p>
                         <span class="pt-1 d-inline-block"> Size: Regular</span>
                         <span class="float-right font-20">
-                            <a href="javascript:void(0)"
-                               onclick="AddToCart('@item.Id', '@item.Name', '@item.UnitPrice',1)"
-                               class="btn btn-outline-primary">Add To Cart</a>
+                            <a href="javascript:void(0)" onclick="AddToCart('@item.Id','@item.Name','@item.UnitPrice',1)" class="btn btn-outline-primary">Add To Cart</a>
                         </span>
                     </p>
                 </div>
@@ -27,4 +25,12 @@
         </div>
     }
     </div>
+</div>
+
+<div class="toast fade hide" data-autohide="false" id="toastCart">
+    <div class="toast-header">
+        <strong class="mr-auto text-primary">Notification</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">×</button>
+    </div>
+    <div class="toast-body"></div>
 </div>
