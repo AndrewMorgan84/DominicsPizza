@@ -37,6 +37,11 @@ namespace DominicsPizza.WebUI.Controllers
         public IActionResult Index()
         {
             CartModel cart = _cartService.GetCartDetails(CartId);
+            if(CurrentUser != null && cart != null)
+            {
+                TempData.Set("Cart", cart);
+                _cartService.UpdateCart(cart.Id, CurrentUser.Id);
+            }
             return View(cart);
         }
 
