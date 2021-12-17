@@ -79,5 +79,12 @@ namespace DominicsPizza.WebUI.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult CheckOut(Address address)
+        {
+            TempData[""];
+            return View();
+        }
     }
 }
