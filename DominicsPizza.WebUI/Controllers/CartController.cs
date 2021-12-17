@@ -2,6 +2,7 @@
 using DominicsPizza.Repositories.Models;
 using DominicsPizza.Services.Interfaces;
 using DominicsPizza.WebUI.Interfaces;
+using DominicsPizza.WebUI.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Text.Json;
@@ -83,8 +84,8 @@ namespace DominicsPizza.WebUI.Controllers
         [HttpPost]
         public IActionResult CheckOut(Address address)
         {
-            TempData[""];
-            return View();
+            TempData.Set("Address", address);
+            return View("Index","Payment");
         }
     }
 }
