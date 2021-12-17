@@ -107,7 +107,7 @@
                                 <span><strong>£@Model.Cart.GrandTotal</strong></span>
                             </li>
                         </ul>
-                        @*@if (CurrentUser != null)
+                        @if (CurrentUser != null)
                             {
                                 <button id="rzp-button" hidden>Pay</button>
                                 @using (Html.BeginForm("Status", "Payment", FormMethod.Post, new { id = "PaymentForm", name = "PaymentForm" }))
@@ -121,7 +121,7 @@
                                     <button type="submit" id="rzp-paymentresponse" hidden style="display: none;">Submit</button>
                                 }
                                 <a href="#" class="btn btn-primary btn-block" onclick="submitToPayment()">Pay Now</a>
-                            }*@
+                            }
                     </div>
                 </div>
             </div>

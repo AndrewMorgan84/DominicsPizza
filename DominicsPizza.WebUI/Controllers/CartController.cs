@@ -90,7 +90,7 @@ namespace DominicsPizza.WebUI.Controllers
         public IActionResult CheckOut(Address address)
         {
             TempData.Set("Address", address);
-            return View("Index","Payment");
+            return RedirectToAction("Index", "Payment");
         }
     }
 }
