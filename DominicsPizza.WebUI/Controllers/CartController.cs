@@ -74,5 +74,10 @@ namespace DominicsPizza.WebUI.Controllers
             int count = _cartService.GetCartCount(CartId);
             return Json(count);
         }
+
+        public IActionResult CheckOut()
+        {
+            return View();
+        }
     }
 }
