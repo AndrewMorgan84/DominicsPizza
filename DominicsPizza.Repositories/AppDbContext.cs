@@ -33,7 +33,7 @@ namespace DominicsPizza.Repositories
 
         public DbSet<OrderItem> OrderItems { get; set; }
 
-        public DbSet<Payment> Payments { get; set; }
+        public DbSet<PaymentDetails> Payments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
