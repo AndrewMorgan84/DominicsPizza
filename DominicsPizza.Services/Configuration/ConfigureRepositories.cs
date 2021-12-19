@@ -27,6 +27,7 @@ namespace DominicsPizza.Services.Configuration
             services.AddTransient<IRepository<Category>, Repository<Category>>();
             services.AddTransient<IRepository<ItemType>, Repository<ItemType>>();
             services.AddTransient<IRepository<CartItem>, Repository<CartItem>>();
+            services.AddTransient<IRepository<PaymentDetails>, Repository<PaymentDetails>>();
         }
     }
 }

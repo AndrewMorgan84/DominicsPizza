@@ -2,7 +2,7 @@
 
 namespace DominicsPizza.Entities
 {
-    public class Payment
+    public class PaymentDetails
     {
         public int Id { get; set; }
 

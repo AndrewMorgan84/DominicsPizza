@@ -1,4 +1,5 @@
 using DominicsPizza.Services.Configuration;
+using DominicsPizza.Services.Models;
 using DominicsPizza.WebUI.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,8 @@ namespace DominicsPizza.WebUI
             {
                 builder.AddRazorRuntimeCompilation();
             }
+
+            services.Configure<RazorPayConfig>(Configuration.GetSection("RazorPayConfig"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
